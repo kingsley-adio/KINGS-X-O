@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KINGS GAME</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>KINGS X / O</h1>
+      <button class="theme-btn" onclick="toggleTheme()">🌗</button>
+    </header>
+    
+    <div id="main-menu">
+      <p>Choose Game Mode:</p>
+      <button class="btn" onclick="setGameMode('bot')">Play with Bot</button>
+      <button class="btn" onclick="setGameMode('player')">Two Players</button>
+
+      <div class="board">
+        <div class="cell" onclick="markCell(this, 'X')"></div>
+        <div class="cell" onclick="markCell(this, 'O')"></div>
+        <div class="cell" onclick="markCell(this, 'X')"></div>
+        <div class="cell" onclick="markCell(this, 'O')"></div>
+        <div class="cell" onclick="markCell(this, 'X')"></div>
+        <div class="cell" onclick="markCell(this, 'O')"></div>
+        <div class="cell" onclick="markCell(this, 'X')"></div>
+        <div class="cell" onclick="markCell(this, 'O')"></div>
+        <div class="cell" onclick="markCell(this, 'X')"></div>
+      </div>
+    </div>
+
+    <div id="difficulty-menu" style="display: none;">
+      <p style="font-size: 30px;font-family: 'Times New Roman', Times, serif;">Let go</p>
+      <button class="btn" onclick="setDifficulty('easy')">Start</button>
+      <!-- <button class="btn" onclick="setDifficulty('hard')">Hard</button> -->
+    </div>
+
+    <div id="side-menu" style="display: none;">
+      <p>Pick Your Side:</p>
+      <button class="btn" onclick="pickSide('X')" style="font-weight: 900;color: #FF0800;">X</button>
+      <button class="btn" onclick="pickSide('O')" style="font-weight: 900; color: #006400;">O</button>
+      <button class="btn back-btn" onclick="goBackToMenu()" style="font-weight: 900;">Back</button>
+    </div>
+
+    <div id="game-area" style="display: none;">
+      <div class="scoreboard">
+        <div id="playerXScore">Player X : 0</div>
+        <div id="playerOScore">Player O : 0</div>
+      </div>
+      <div id="board" class="board"></div>
+      <div id="status"></div>
+      <div id="robot-container">
+        <div id="robot">🤖</div>
+        <div id="chatbot" class="chatbot"></div>
+      </div>
+      <div class="game-buttons">
+        <button class="btn" onclick="resetGame()">Reset Game</button>
+        <button class="btn back-btn" onclick="goBackToMenu()">Back</button>
+      </div>
+      <div id="score-history-container">
+        <h3>Score History</h3>
+        <div class="scores">
+        <ul id="score-history"></ul>
+    </div>
+      </div>
+    </div>
+  </div>
+  <audio id="click-sound" src="tap-notification-180637.mp3"></audio>
+  <audio id="win-sound" src="mixkit-achievement-bell-600.wav"></audio>
+  <audio id="draw-sound" src="fail-234710.mp3"></audio>
+  <script src="./game.js"></script>
+</body>
+</html>
